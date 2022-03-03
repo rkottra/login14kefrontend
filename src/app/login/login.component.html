@@ -1,0 +1,19 @@
+
+
+<div *ngIf="!loggedin">
+
+
+    <input type="text" placeholder="email" [(ngModel)]="user.email"  />
+    <input type="password" placeholder="password" [(ngModel)]="user.password"  />
+
+    <input type="submit" value="Login" (click)="login()" />
+
+</div>
+
+<div *ngIf="loggedin">
+
+
+
+    <input type="submit" value="logout" (click)="logout()" />
+
+</div>
