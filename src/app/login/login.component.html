@@ -1,4 +1,5 @@
 
+{{fontosdolog}}
 
 <div *ngIf="!loggedin">
 
@@ -8,12 +9,16 @@
 
     <input type="submit" value="Login" (click)="login()" />
 
+    <input type="button" value="mutasd a fontos dolgot" (click)="fontos()" />
+
 </div>
 
 <div *ngIf="loggedin">
 
 
-
+    {{loginuser}}
     <input type="submit" value="logout" (click)="logout()" />
+
+    <input type="button" value="mutasd a fontos dolgot" (click)="fontos()" />
 
 </div>
