@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
 export class LoginComponent implements OnInit {
 
   public user: User = new User();
-  public fontosdolog :string = "";
+  
   
 
   constructor(private loginService:LoginServiceService) { 
@@ -38,11 +38,6 @@ export class LoginComponent implements OnInit {
     this.loginService.logout();
   }
 
-  fontos() {
-    this.loginService.fontos().subscribe((data)  => 
-    {
-      this.fontosdolog = data;
-    });
-  }
+  
 
 }

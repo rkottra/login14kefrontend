@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from './models/user.model';
 
@@ -10,7 +11,7 @@ export class LoginServiceService {
 
   public static userloggedin :User = new User();
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router:Router) { 
     if (localStorage.getItem('token')) {
       LoginServiceService.userloggedin.token = localStorage.getItem('token')!;
     }
@@ -34,6 +35,8 @@ export class LoginServiceService {
       LoginServiceService.userloggedin.email = data.email;
       LoginServiceService.userloggedin.token = data.token;
       localStorage.setItem('token', data.token);
+
+      this.router.navigate(['/belsoOldal']);
       //console.log(LoginServiceService.userloggedin);
     });
   }
@@ -50,6 +53,7 @@ export class LoginServiceService {
     }).subscribe(() => {
       LoginServiceService.userloggedin = new User();
       localStorage.removeItem('token');
+      this.router.navigate(['/']);
     }
     );
   }
